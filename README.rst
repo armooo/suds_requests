@@ -30,7 +30,7 @@ Adding basic auth::
 
     c = suds.client.Client(
         'http://wsdl_url',
-        transport=suds_requests.RequestsTransport()
+        transport=suds_requests.RequestsTransport(session)
     )
 
 Changing the connection pool size::
