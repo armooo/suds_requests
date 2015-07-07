@@ -38,6 +38,7 @@ class RequestsTransport(transport.Transport):
     @handle_errors
     def open(self, request):
         resp = self._session.get(request.url)
+        resp.raise_for_status()
         return StringIO.StringIO(resp.content)
 
     @handle_errors
