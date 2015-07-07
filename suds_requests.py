@@ -18,14 +18,16 @@ def handle_errors(f):
         try:
             return f(*args, **kwargs)
         except requests.HTTPError as e:
+            buf = StringIO.StringIO(e.response.content)
             raise transport.TransportError(
                 'Error in requests\n' + traceback.format_exc(),
                 e.response.status_code,
+                buf,
             )
         except requests.RequestException:
             raise transport.TransportError(
                 'Error in requests\n' + traceback.format_exc(),
-                000
+                000,
             )
     return wrapper
 
