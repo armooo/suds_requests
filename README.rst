@@ -7,7 +7,7 @@ with the pain of soap.
 
 
 Examples
-=======
+========
 
 Simple::
 
