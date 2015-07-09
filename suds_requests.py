@@ -50,6 +50,9 @@ class RequestsTransport(transport.Transport):
             data=request.message,
             headers=request.headers,
         )
+        if resp.headers.get('content-type') not in ('text/xml',
+                                                    'application/soap+xml'):
+            resp.raise_for_status()
         return transport.Reply(
             resp.status_code,
             resp.headers,
