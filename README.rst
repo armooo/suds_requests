@@ -26,7 +26,8 @@ Adding basic auth::
     import suds.client
     import suds_requests
 
-    session = requests.Session(auth=('user', 'password'))
+    session = requests.Session()
+    session.auth=('user', 'password')
 
     c = suds.client.Client(
         'http://wsdl_url',
