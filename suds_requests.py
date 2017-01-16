@@ -25,9 +25,11 @@ def handle_errors(f):
                 buf,
             )
         except requests.RequestException:
+            buf = StringIO.StringIO(traceback.format_exc())
             raise transport.TransportError(
                 'Error in requests\n' + traceback.format_exc(),
                 000,
+                buf,
             )
     return wrapper
 

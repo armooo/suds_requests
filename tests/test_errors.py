@@ -35,3 +35,4 @@ def test_RequestException():
     with pytest.raises(suds.transport.TransportError) as excinfo:
         f()
     assert excinfo.value.httpcode == 000
+    assert excinfo.value.fp.read().startswith('Traceback')
