@@ -1,0 +1,11 @@
+sudo: false
+language: python
+cache:
+  directories:
+    - .tox
+    - $HOME/.cache/pip
+python:
+  - "2.7"
+  - "pypy"
+install: pip install tox-travis
+script: tox -v
