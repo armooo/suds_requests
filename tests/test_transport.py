@@ -6,18 +6,18 @@ import suds_requests
 
 def test_open():
     session = mock.Mock()
-    session.get.return_value.content = 'abc123'
+    session.get.return_value.content = b'abc123'
     transport = suds_requests.RequestsTransport(session)
     request = suds.transport.Request('http://url')
 
     response = transport.open(request)
 
-    assert response.read() == 'abc123'
+    assert response.read() == b'abc123'
 
 
 def test_send():
     session = mock.Mock()
-    session.post.return_value.content = 'abc123'
+    session.post.return_value.content = b'abc123'
     session.post.return_value.headers = {
         1: 'A',
         2: 'B',
@@ -48,4 +48,4 @@ def test_send():
         1: 'A',
         2: 'B',
     }
-    assert reply.message == 'abc123'
+    assert reply.message == b'abc123'

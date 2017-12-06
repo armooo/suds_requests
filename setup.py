@@ -11,6 +11,7 @@ setup(
     py_modules=['suds_requests'],
     install_requires=[
         'requests',
+        'six',
         'suds-jurko',
     ],
     license='MIT',
